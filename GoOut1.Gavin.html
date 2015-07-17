@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+##GoOut Project idea input
+感兴趣的朋友可以一起来讨论吧！！
+
+####想法简介
+这是一个真人游戏挑战社交，主要由两个特色功能模块组成，一个是圈地社交 一个是挑战社交。 
+
+**圈地社交：**模拟狗狗占领地盘的方式，记录用户经过的地方（有一个速度范围标准），将其标记为自己的领地，一旦领地被他人占领的，即损失领地。后台动态的计算领地范围。
+
+**挑战分享社交：** 用户可以发起有趣或者有挑战的事情，挑战好友。当有人接受挑战时，对方需要在指定的时间范围内，提供视频、照片、音频、文字完成挑战。
+
+
+**目标用户：**热爱生活 爱运动 崇尚挑战 爱社交的年轻人。
+
+####模块详细介绍
+
+**圈地社交：**
+
+用户需要按圈地的流程的，类似于开始计时的方式去圈地，用凸包算法来计算领地覆盖范围，凸包范围内的面积为合法的圈地。有效的定位为当用户的移动速度不超过正常的步行速度（10km/h）且定位误差小于100米的情况下时。更新位置间隔为每移动1米，更新位置一次。当无法定位时，则无法圈地。（具体算法可以参见GoOut核心算法设计流程）
+
+圈地的时效性是即时的，好友可以马上通过圈地的手段来挣回来。需要解决后台并行计算的问题。用户更新位置的时间以上传到服务器的时间为准，而不是设备更新位置的时间。
+
+由于涉及用户地理位置信息，采用访问权限控制，即自己的朋友圈可以互相访问（一度）。用户可以选择是否允许自己的好友查看自己的领地和位置，一旦不允许的话，则不加入自己的领地比赛当中。
+
+	
+**挑战分享社交：**
+
+用户以视频、图片、音频、文字的多媒体形式发起挑战，挑战是及时、有实效性的。当有他人选择接受挑战或者点赞时，会延长挑战的存在时间。
+		
+当用户选择挑战时，会给予一定的时间，让其完成提交挑战。关联的挑战组成一个挑战集合，置顶的是得到点赞人数和被挑战次数最多的用户。
+	
+用一个挑战集合在到达实效期限后，会随之消失。个人用户还是可以在自己的挑战时刻里面查看自己的挑战。
+		
+		
+####功能需求描述
+1 提供多种方式登录，包括手机号+验证码、第三方QQ、微博账号登陆。
+
+2 注册方式直接通过，登录过程中的信息，直接帮用户注册。
+
+3 个人资料包括 头像、 昵称、性别、简介，允许修改个人资料。可以邀请自己的好友使用软件（通过微信 微博 分享）
+
+4 圈地社交具有访问权限控制，即自己的朋友圈可以互相访问（一度）。用户可以选择是否允许自己的好友查看自己的领地和位置，一旦不允许的话，则不加入自己的领地比赛当中。
+
+5 用户可以通过微信、微博分享自己的领地 和 挑战。
+
+6 实现消息推送和版本更新推送
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<h2 id="gooutprojectideainput">GoOut Project idea input</h2>
+
+<p>感兴趣的朋友可以一起来讨论吧！！</p>
+
+<h4 id="">想法简介</h4>
+
+<p>这是一个真人游戏挑战社交，主要由两个特色功能模块组成，一个是圈地社交 一个是挑战社交。 </p>
+
+<p><strong>圈地社交：</strong>模拟狗狗占领地盘的方式，记录用户经过的地方（有一个速度范围标准），将其标记为自己的领地，一旦领地被他人占领的，即损失领地。后台动态的计算领地范围。</p>
+
+<p><strong>挑战分享社交：</strong> 用户可以发起有趣或者有挑战的事情，挑战好友。当有人接受挑战时，对方需要在指定的时间范围内，提供视频、照片、音频、文字完成挑战。</p>
+
+<p><strong>目标用户：</strong>热爱生活 爱运动 崇尚挑战 爱社交的年轻人。</p>
+
+<h4 id="">模块详细介绍</h4>
+
+<p><strong>圈地社交：</strong></p>
+
+<p>用户需要按圈地的流程的，类似于开始计时的方式去圈地，用凸包算法来计算领地覆盖范围，凸包范围内的面积为合法的圈地。有效的定位为当用户的移动速度不超过正常的步行速度（10km/h）且定位误差小于100米的情况下时。更新位置间隔为每移动1米，更新位置一次。当无法定位时，则无法圈地。（具体算法可以参见GoOut核心算法设计流程）</p>
+
+<p>圈地的时效性是即时的，好友可以马上通过圈地的手段来挣回来。需要解决后台并行计算的问题。用户更新位置的时间以上传到服务器的时间为准，而不是设备更新位置的时间。</p>
+
+<p>由于涉及用户地理位置信息，采用访问权限控制，即自己的朋友圈可以互相访问（一度）。用户可以选择是否允许自己的好友查看自己的领地和位置，一旦不允许的话，则不加入自己的领地比赛当中。</p>
+
+<p><strong>挑战分享社交：</strong></p>
+
+<p>用户以视频、图片、音频、文字的多媒体形式发起挑战，挑战是及时、有实效性的。当有他人选择接受挑战或者点赞时，会延长挑战的存在时间。</p>
+
+<p>当用户选择挑战时，会给予一定的时间，让其完成提交挑战。关联的挑战组成一个挑战集合，置顶的是得到点赞人数和被挑战次数最多的用户。</p>
+
+<p>用一个挑战集合在到达实效期限后，会随之消失。个人用户还是可以在自己的挑战时刻里面查看自己的挑战。</p>
+
+<h4 id="">功能需求描述</h4>
+
+<p>1 提供多种方式登录，包括手机号+验证码、第三方QQ、微博账号登陆。</p>
+
+<p>2 注册方式直接通过，登录过程中的信息，直接帮用户注册。</p>
+
+<p>3 个人资料包括 头像、 昵称、性别、简介，允许修改个人资料。可以邀请自己的好友使用软件（通过微信 微博 分享）</p>
+
+<p>4 圈地社交具有访问权限控制，即自己的朋友圈可以互相访问（一度）。用户可以选择是否允许自己的好友查看自己的领地和位置，一旦不允许的话，则不加入自己的领地比赛当中。</p>
+
+<p>5 用户可以通过微信、微博分享自己的领地 和 挑战。</p>
+
+<p>6 实现消息推送和版本更新推送</p>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "GoOut1.Gavin.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>
